@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}" Name="LAPTOP-LLLRUKGJ.NFL_Staging">
+      <DtsConnectionManagerID>LAPTOP-LLLRUKGJ.NFL_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{66367BB0-4826-497D-B453-BFD2B95A5A08}" Name="NFL_College_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_College_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{0319BAD9-8646-4B1F-B623-85F9DD0AABE4}" Name="NFL_Draft_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Draft_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{623C907B-63B8-47AF-84A4-7FBE882FDC3F}" Name="NFL_Location_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Location_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{72B9D600-53B1-41A8-8B06-FE9CF6BE4566}" Name="NFL_Player_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Player_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{D9AA034B-FC5A-46D7-8CDF-4FA7F7B2B947}" Name="NFL_Team_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Team_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgLocation" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgLocation" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgLocation" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgLocation" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgLocation" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="Country" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="State" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>3</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>17</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="Country" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>3</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>17</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="State" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>12</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <KeyColumns>
+          <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>17</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>L01</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L02</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L03</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L04</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L05</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L06</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L07</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L08</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L09</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L11</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L12</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L13</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L14</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L15</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L16</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L17</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L18</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="Country" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>1</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>USA</Value>
+            <Count>17</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <KeyColumns>
+          <Column Name="State" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgLocation" RowCount="17" />
+        <Column Name="State" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>17</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Alabama</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>California</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Colorado</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Florida</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Georgia</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Michigan</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Montana</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nevada</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>New Jersey</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Ohio</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Oklahama</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>South Dakota</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Tennessee</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Texas</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Utah</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Virginia</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Washington</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

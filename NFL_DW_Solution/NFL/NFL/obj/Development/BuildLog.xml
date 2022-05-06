@@ -2,13 +2,23 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>NFL</Name>
-    <LastWriteTime>2022-05-05T19:40:25.0531524Z</LastWriteTime>
+    <LastWriteTime>2022-05-06T13:30:31.6821143Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>NFL_Staging.dtsx</Name>
-      <LastWriteTime>2022-05-05T19:46:21.9958647Z</LastWriteTime>
+      <LastWriteTime>2022-05-06T19:59:32.1541758Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>NFL_DataProfiling.dtsx</Name>
+      <LastWriteTime>2022-05-06T19:41:36.6713397Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>NFL_DW.dtsx</Name>
+      <LastWriteTime>2022-05-06T20:03:27.6480198Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

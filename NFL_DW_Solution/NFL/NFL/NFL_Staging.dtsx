@@ -11,11 +11,92 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NFL_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{45CB64E9-C699-4696-B9B4-17160B430296}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{17772E5C-CB8D-4085-B1C0-2167AC878B19}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Draft]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{67D07F8C-8B3B-4184-952D-16F955FF6776}"
+      DTS:ObjectName="Draft">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\DWBI Assignment\DataSources\Draft.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DraftID"
+              DTS:DTSID="{9E992690-1B9E-427B-9B45-A19188FACD3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CollegeID"
+              DTS:DTSID="{F56310D7-556C-4AFF-A8CA-EE7A9401F1FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PlayerID"
+              DTS:DTSID="{8371F096-2A18-4164-B73B-5D4FED4E36C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Draft_Date"
+              DTS:DTSID="{F1FF85EE-C683-4A42-8026-F27E25A081EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Draft_Price"
+              DTS:DTSID="{B61476C9-26C3-42D8-8D72-2258BD994BE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Goals_Scored"
+              DTS:DTSID="{543329DE-C72E-4FC8-9C6F-22BD67FF111F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Average_Score"
+              DTS:DTSID="{8EDBD698-2C1B-40FB-8D27-C01060F882DB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
@@ -583,11 +664,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Exctract Location Data to Staging\OLE DB Destination"
+              refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="Load Data to Location Staging Table"
               usesDispositions="true"
               version="4">
               <properties>
@@ -640,7 +721,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Exctract Location Data to Staging\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
                   description="The OLE DB runtime connection used to access the database."
@@ -648,48 +729,48 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationID]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].Columns[LocationID]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LocationID"
-                      externalMetadataColumnId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                      externalMetadataColumnId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
                       lineageId="Package\Exctract Location Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[LocationID]" />
                     <inputColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Country]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].Columns[Country]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Country"
-                      externalMetadataColumnId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      externalMetadataColumnId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
                       lineageId="Package\Exctract Location Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Country]" />
                     <inputColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].Columns[State]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="State"
-                      externalMetadataColumnId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      externalMetadataColumnId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[State]"
                       lineageId="Package\Exctract Location Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[State]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
                       dataType="wstr"
                       length="50"
                       name="LocationID" />
                     <externalMetadataColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
                       dataType="wstr"
                       length="50"
                       name="Country" />
                     <externalMetadataColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input].ExternalColumns[State]"
                       dataType="wstr"
                       length="50"
                       name="State" />
@@ -698,22 +779,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Exctract Location Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Exctract Location Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Exctract Location Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Exctract Location Data to Staging\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -725,7 +806,7 @@
           <paths>
             <path
               refId="Package\Exctract Location Data to Staging.Paths[Flat File Source Output]"
-              endId="Package\Exctract Location Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Exctract Location Data to Staging\Load Data to Location Staging Table.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\Exctract Location Data to Staging\Flat File Source.Outputs[Flat File Source Output]" />
           </paths>
@@ -1149,13 +1230,13 @@
           </DTS:Variables>
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\Extract Draft Data to Staging.EventHandlers[OnPreExecute]\Truncate Draft Staging Table"
+              DTS:refId="Package\Extract Draft Data to Staging.EventHandlers[OnPreExecute]\Trunczte Draft Staging Table"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{4375A979-50D6-41C1-9A1D-053145B9C439}"
+              DTS:DTSID="{4E524B30-13C7-4141-B9E8-524A986960EC}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="Truncate Draft Staging Table"
+              DTS:ObjectName="Trunczte Draft Staging Table"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
               <DTS:Variables />
               <DTS:ObjectData>
@@ -1193,8 +1274,8 @@
               <connections>
                 <connection
                   refId="Package\Extract Draft Data to Staging\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 4]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 4]"
+                  connectionManagerID="Package.ConnectionManagers[Draft]"
+                  connectionManagerRefId="Package.ConnectionManagers[Draft]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1327,6 +1408,26 @@
                           name="UseBinaryFormat">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Draft Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Average_Score]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Draft Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Average_Score]"
+                      lineageId="Package\Extract Draft Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Average_Score]"
+                      name="Average_Score"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1359,6 +1460,10 @@
                       dataType="numeric"
                       name="Goals_Scored"
                       precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Draft Data to Staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Average_Score]"
+                      dataType="r4"
+                      name="Average_Score" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1503,6 +1608,12 @@
                       cachedPrecision="18"
                       externalMetadataColumnId="Package\Extract Draft Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Goals_Scored]"
                       lineageId="Package\Extract Draft Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Goals_Scored]" />
+                    <inputColumn
+                      refId="Package\Extract Draft Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Average_Score]"
+                      cachedDataType="r4"
+                      cachedName="Average_Score"
+                      externalMetadataColumnId="Package\Extract Draft Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Average_Score]"
+                      lineageId="Package\Extract Draft Data to Staging\Flat File Source.Outputs[Flat File Source Output].Columns[Average_Score]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1535,6 +1646,10 @@
                       dataType="numeric"
                       name="Goals_Scored"
                       precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Draft Data to Staging\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Average_Score]"
+                      dataType="r8"
+                      name="Average_Score" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1578,7 +1693,7 @@
       DTS:refId="Package\Extract Player Data to Staging"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{C8AFD2A4-C08D-43AD-9886-C262ADB42F90}"
+      DTS:DTSID="{2008F2CC-E94C-4D6B-B92A-69ED6AFBD6DC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Extract Player Data to Staging"
@@ -1586,38 +1701,17 @@
       <DTS:Variables />
       <DTS:EventHandlers>
         <DTS:EventHandler
-          DTS:refId="Package\Extract Player Data to Staging.EventHandlers[OnError]"
-          DTS:CreationName="OnError"
-          DTS:DTSID="{E07C3EE6-A92A-4B7E-B164-62676BC80CED}"
-          DTS:EventID="16384"
-          DTS:EventName="OnError"
-          DTS:LocaleID="-1">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:Description="The propagate property of the event"
-              DTS:DTSID="{E6C26771-BB05-4807-AD3E-B95E5752B1F2}"
-              DTS:IncludeInDebugDump="6789"
-              DTS:Namespace="System"
-              DTS:ObjectName="Propagate">
-              <DTS:VariableValue
-                DTS:DataType="11">-1</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:Executables />
-        </DTS:EventHandler>
-        <DTS:EventHandler
           DTS:refId="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]"
           DTS:CreationName="OnPreExecute"
-          DTS:DTSID="{17ED793E-5D0E-479D-B977-63F6B6A7EC3B}"
-          DTS:EventID="-1"
+          DTS:DTSID="{3B2993DB-52CB-429F-B046-52DD53C1E81F}"
+          DTS:EventID="0"
           DTS:EventName="OnPreExecute"
           DTS:LocaleID="-1">
           <DTS:Variables>
             <DTS:Variable
               DTS:CreationName=""
               DTS:Description="The propagate property of the event"
-              DTS:DTSID="{577F3918-9644-4F33-916F-BE0B6E9025D4}"
+              DTS:DTSID="{7FD1A795-3D0D-42F6-840F-4DC65B683CF3}"
               DTS:IncludeInDebugDump="6789"
               DTS:Namespace="System"
               DTS:ObjectName="Propagate">
@@ -1630,7 +1724,7 @@
               DTS:refId="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]\Truncate Player Staging Table"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{E38BE1BA-20E2-48A3-A7DA-D2A37AA29D4F}"
+              DTS:DTSID="{71F6D543-01EF-47B7-9A31-D5881061CE0D}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Truncate Player Staging Table"
@@ -1650,11 +1744,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Extract Player Data to Staging\Load data to Player Staging table"
+              refId="Package\Extract Player Data to Staging\Load Player Data to Staging"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Load data to Player Staging table"
+              name="Load Player Data to Staging"
               usesDispositions="true"
               version="4">
               <properties>
@@ -1707,7 +1801,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Connections[OleDbConnection]"
+                  refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1715,106 +1809,106 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input]"
+                  refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].Columns[PlayerID]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].Columns[PlayerID]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="PlayerID"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[PlayerID]"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[PlayerID]"
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlayerID]" />
                     <inputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].Columns[PlayerName]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].Columns[PlayerName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="PlayerName"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[PlayerName]"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[PlayerName]"
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlayerName]" />
                     <inputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].Columns[PlayerPosition]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].Columns[PlayerPosition]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="PlayerPosition"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[PlayerPosition]"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[PlayerPosition]"
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlayerPosition]" />
                     <inputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].Columns[Age]"
-                      cachedDataType="ui1"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].Columns[Age]"
+                      cachedDataType="i4"
                       cachedName="Age"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age]" />
                     <inputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].Columns[LocationID]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].Columns[LocationID]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LocationID"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationID]" />
                     <inputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].Columns[TeamID]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].Columns[ManagerName]"
                       cachedDataType="wstr"
                       cachedLength="50"
-                      cachedName="TeamID"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamID]"
-                      lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamID]" />
+                      cachedName="ManagerName"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[ManagerName]"
+                      lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManagerName]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[PlayerID]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[PlayerID]"
                       dataType="wstr"
                       length="50"
                       name="PlayerID" />
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[PlayerName]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[PlayerName]"
                       dataType="wstr"
                       length="50"
                       name="PlayerName" />
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[PlayerPosition]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[PlayerPosition]"
                       dataType="wstr"
                       length="50"
                       name="PlayerPosition" />
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
-                      dataType="ui1"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[Age]"
+                      dataType="i4"
                       name="Age" />
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[LocationID]"
                       dataType="wstr"
                       length="50"
                       name="LocationID" />
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamID]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[ManagerName]"
                       dataType="wstr"
                       length="50"
-                      name="TeamID" />
+                      name="ManagerName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Extract Player Data to Staging\Load data to Player Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Extract Player Data to Staging\Load Player Data to Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Extract Player Data to Staging\Load data to Player Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Extract Player Data to Staging\Load Player Data to Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Extract Player Data to Staging\Load data to Player Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Extract Player Data to Staging\Load Player Data to Staging.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1915,7 +2009,7 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age]"
-                      dataType="ui1"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age]"
@@ -1933,14 +2027,14 @@
                       name="LocationID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamID]"
+                      refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManagerName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamID]"
+                      externalMetadataColumnId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ManagerName]"
                       length="50"
-                      lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamID]"
-                      name="TeamID"
+                      lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[ManagerName]"
+                      name="ManagerName"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1962,7 +2056,7 @@
                       name="PlayerPosition" />
                     <externalMetadataColumn
                       refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age]"
-                      dataType="ui1"
+                      dataType="i4"
                       name="Age" />
                     <externalMetadataColumn
                       refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
@@ -1970,10 +2064,10 @@
                       length="50"
                       name="LocationID" />
                     <externalMetadataColumn
-                      refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamID]"
+                      refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ManagerName]"
                       dataType="wstr"
                       length="50"
-                      name="TeamID" />
+                      name="ManagerName" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2001,7 +2095,7 @@
                       name="PlayerPosition" />
                     <outputColumn
                       refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age]"
-                      dataType="ui1"
+                      dataType="i4"
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age]"
                       name="Age" />
                     <outputColumn
@@ -2011,11 +2105,11 @@
                       lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationID]"
                       name="LocationID" />
                     <outputColumn
-                      refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamID]"
+                      refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ManagerName]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamID]"
-                      name="TeamID" />
+                      lineageId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ManagerName]"
+                      name="ManagerName" />
                     <outputColumn
                       refId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -2037,364 +2131,9 @@
           <paths>
             <path
               refId="Package\Extract Player Data to Staging.Paths[OLE DB Source Output]"
-              endId="Package\Extract Player Data to Staging\Load data to Player Staging table.Inputs[OLE DB Destination Input]"
+              endId="Package\Extract Player Data to Staging\Load Player Data to Staging.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Extract Player Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Extract Team Data to Staging"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{C5988CB6-203B-454E-805A-81CA6AE95F37}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Extract Team Data to Staging"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:EventHandlers>
-        <DTS:EventHandler
-          DTS:refId="Package\Extract Team Data to Staging.EventHandlers[OnPreExecute]"
-          DTS:CreationName="OnPreExecute"
-          DTS:DTSID="{1630CEAB-3299-4FA0-BB09-6506A9E51DA0}"
-          DTS:EventID="16384"
-          DTS:EventName="OnPreExecute"
-          DTS:LocaleID="-1">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:Description="The propagate property of the event"
-              DTS:DTSID="{28907D29-F58B-4685-8045-9549A7BAA31D}"
-              DTS:IncludeInDebugDump="6789"
-              DTS:Namespace="System"
-              DTS:ObjectName="Propagate">
-              <DTS:VariableValue
-                DTS:DataType="11">-1</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\Extract Team Data to Staging.EventHandlers[OnPreExecute]\Trunctae Team Staging Table"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{20A70F75-7A6C-4C96-87C0-7A4CE8C17119}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="Trunctae Team Staging Table"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-              <DTS:Variables />
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{2D5B286B-A608-4904-A366-FAA0C171A21A}"
-                  SQLTask:SqlStatementSource="truncate table dbo.StgTeam" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:EventHandler>
-      </DTS:EventHandlers>
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Extract Team Data to Staging\Load Data to Team Staging table"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Load Data to Team Staging table"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[StgTeam]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].Columns[TeamID]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="TeamID"
-                      externalMetadataColumnId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamID]"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamID]" />
-                    <inputColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].Columns[TeamName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="TeamName"
-                      externalMetadataColumnId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamName]"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamName]" />
-                    <inputColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].Columns[TeamOwner]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="TeamOwner"
-                      externalMetadataColumnId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamOwner]"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamOwner]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamID]"
-                      dataType="wstr"
-                      length="50"
-                      name="TeamID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamName]"
-                      dataType="wstr"
-                      length="50"
-                      name="TeamName" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input].ExternalColumns[TeamOwner]"
-                      dataType="wstr"
-                      length="50"
-                      name="TeamOwner" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Extract Team Data to Staging\OLE DB Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="OLE DB Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Team]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Extract Team Data to Staging\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_SourceDB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_SourceDB]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamID]"
-                      length="50"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamID]"
-                      name="TeamID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamName]"
-                      length="50"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamName]"
-                      name="TeamName"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamOwner]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamOwner]"
-                      length="50"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].Columns[TeamOwner]"
-                      name="TeamOwner"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamID]"
-                      dataType="wstr"
-                      length="50"
-                      name="TeamID" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamName]"
-                      dataType="wstr"
-                      length="50"
-                      name="TeamName" />
-                    <externalMetadataColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TeamOwner]"
-                      dataType="wstr"
-                      length="50"
-                      name="TeamOwner" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamID]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamID]"
-                      name="TeamID" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamName]"
-                      name="TeamName" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamOwner]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TeamOwner]"
-                      name="TeamOwner" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Extract Team Data to Staging.Paths[OLE DB Source Output]"
-              endId="Package\Extract Team Data to Staging\Load Data to Team Staging table.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Extract Team Data to Staging\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2404,34 +2143,26 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{C9FBA7F6-A183-4F15-BDE4-03310AB599E3}"
-      DTS:From="Package\Extract Player Data to Staging"
+      DTS:DTSID="{7BAA51CB-2AD0-4B48-B09C-E766722817DE}"
+      DTS:From="Package\Exctract Location Data to Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Extract Team Data to Staging" />
+      DTS:To="Package\Extract College Data to Staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{55DFCE95-491B-4013-B577-5BAD6C4F98A9}"
-      DTS:From="Package\Extract Team Data to Staging"
+      DTS:DTSID="{9E959432-9FE5-4C82-93C9-601044908954}"
+      DTS:From="Package\Extract College Data to Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Extract College Data to Staging" />
+      DTS:To="Package\Extract Player Data to Staging" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{3C4F68A5-1D83-4746-83CB-48E3CC980EE5}"
-      DTS:From="Package\Extract College Data to Staging"
+      DTS:DTSID="{1D776723-E787-494B-9BFD-E36A7EB205E4}"
+      DTS:From="Package\Extract Player Data to Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Exctract Location Data to Staging" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{5780B9D7-5DD4-477C-84BB-E2CC9F9900F0}"
-      DTS:From="Package\Exctract Location Data to Staging"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3"
       DTS:To="Package\Extract Draft Data to Staging" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -2445,47 +2176,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="235.2,41.6"
           Id="Package\Exctract Location Data to Staging"
-          TopLeft="623.942867482439,185.823532017869" />
+          TopLeft="61.8000007663458,49.7058830500468" />
         <NodeLayout
           Size="225.6,41.6"
           Id="Package\Extract College Data to Staging"
-          TopLeft="470.000008004052,131.529413609357" />
+          TopLeft="204.285717764679,124.647060571659" />
         <NodeLayout
           Size="214.4,41.6"
           Id="Package\Extract Draft Data to Staging"
-          TopLeft="773.428582692633,239.352944533305" />
+          TopLeft="551.057150143506,274.529415614878" />
         <NodeLayout
           Size="220,41.6"
           Id="Package\Extract Player Data to Staging"
-          TopLeft="72.857144097893,18.3529414338637" />
-        <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Extract Team Data to Staging"
-          TopLeft="283.571433400621,77.2352952008429" />
+          TopLeft="387.142863735861,200.729413973997" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="292.857144097893,39.1529414338637">
+          TopLeft="179.400000766346,91.3058830500468">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="99.5142893027281,38.0823537669792"
+              EndConnector="137.685716998334,33.3411775216118"
               Start="0,0"
-              End="99.5142893027281,30.5823537669792">
+              End="137.685716998334,25.8411775216118">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="95.5142893027281,0" />
+                    End="0,12.6705887608059" />
                   <mssgle:CubicBezierSegment
-                    Point1="95.5142893027281,0"
-                    Point2="99.5142893027281,0"
-                    Point3="99.5142893027281,4" />
+                    Point1="0,12.6705887608059"
+                    Point2="0,16.6705887608059"
+                    Point3="4,16.6705887608059" />
                   <mssgle:LineSegment
-                    End="99.5142893027281,30.5823537669792" />
+                    End="133.685716998334,16.6705887608059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.685716998334,16.6705887608059"
+                    Point2="137.685716998334,16.6705887608059"
+                    Point3="137.685716998334,20.6705887608059" />
+                  <mssgle:LineSegment
+                    End="137.685716998334,25.8411775216118" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2496,24 +2229,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="501.171433400621,98.0352952008429">
+          TopLeft="317.085717764679,166.247060571659">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="81.628574603431,33.4941184085138"
+              EndConnector="180.057145971182,34.4823534023379"
               Start="0,0"
-              End="81.628574603431,25.9941184085138">
+              End="180.057145971182,26.9823534023379">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="77.628574603431,0" />
+                    End="0,13.241176701169" />
                   <mssgle:CubicBezierSegment
-                    Point1="77.628574603431,0"
-                    Point2="81.628574603431,0"
-                    Point3="81.628574603431,4" />
+                    Point1="0,13.241176701169"
+                    Point2="0,17.241176701169"
+                    Point3="4,17.241176701169" />
                   <mssgle:LineSegment
-                    End="81.628574603431,25.9941184085138" />
+                    End="176.057145971182,17.241176701169" />
+                  <mssgle:CubicBezierSegment
+                    Point1="176.057145971182,17.241176701169"
+                    Point2="180.057145971182,17.241176701169"
+                    Point3="180.057145971182,21.241176701169" />
+                  <mssgle:LineSegment
+                    End="180.057145971182,26.9823534023379" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2524,52 +2263,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="695.600008004052,152.329413609357">
+          TopLeft="497.142863735861,242.329413973997">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45.9428594783866,33.4941184085125"
+              EndConnector="161.114286407645,32.2000016408811"
               Start="0,0"
-              End="45.9428594783866,25.9941184085125">
+              End="161.114286407645,24.7000016408811">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41.9428594783866,0" />
+                    End="0,12.1000008204405" />
                   <mssgle:CubicBezierSegment
-                    Point1="41.9428594783866,0"
-                    Point2="45.9428594783866,0"
-                    Point3="45.9428594783866,4" />
+                    Point1="0,12.1000008204405"
+                    Point2="0,16.1000008204405"
+                    Point3="4,16.1000008204405" />
                   <mssgle:LineSegment
-                    End="45.9428594783866,25.9941184085125" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="859.142867482439,206.623532017869">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21.4857152101945,32.7294125154357"
-              Start="0,0"
-              End="21.4857152101945,25.2294125154357">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="17.4857152101945,0" />
+                    End="157.114286407645,16.1000008204405" />
                   <mssgle:CubicBezierSegment
-                    Point1="17.4857152101945,0"
-                    Point2="21.4857152101945,0"
-                    Point3="21.4857152101945,4" />
+                    Point1="157.114286407645,16.1000008204405"
+                    Point2="161.114286407645,16.1000008204405"
+                    Point3="161.114286407645,20.1000008204405" />
                   <mssgle:LineSegment
-                    End="21.4857152101945,25.2294125154357" />
+                    End="161.114286407645,24.7000016408811" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2585,10 +2302,10 @@
     design-time-name="Package\Exctract Location Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Exctract Location Data to Staging\OLE DB Destination"
+          Size="249.6,41.6"
+          Id="Package\Exctract Location Data to Staging\Load Data to Location Staging Table"
           TopLeft="716,112" />
         <NodeLayout
           Size="150.4,41.6"
@@ -2613,9 +2330,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2634,7 +2349,7 @@
     </LayoutInfo>
   </DtsEventHandler>
   <PipelineComponentMetadata
-    design-time-name="Package\Exctract Location Data to Staging\OLE DB Destination">
+    design-time-name="Package\Exctract Location Data to Staging\Load Data to Location Staging Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2650,7 +2365,7 @@
     design-time-name="Package\Extract College Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Extract College Data to Staging\OLE DB Destination"
@@ -2678,9 +2393,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2719,25 +2432,25 @@
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Extract Draft Data to Staging\Flat File Source"
-          TopLeft="112.142859052639,70.352942163144" />
+          TopLeft="138.571430931286,94.0588248485513" />
         <NodeLayout
-          Size="170.4,41.6"
+          Size="170.4,44.8"
           Id="Package\Extract Draft Data to Staging\OLE DB Destination"
-          TopLeft="494.28572270335,67.2941185908334" />
+          TopLeft="518.571437402648,94.0588248485512" />
         <EdgeLayout
           Id="Package\Extract Draft Data to Staging.Paths[Flat File Source Output]"
-          TopLeft="262.542859052639,89.6235303769887">
+          TopLeft="288.971430931286,115.658824848551">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="231.742863650711,0"
+              EndConnector="229.600006471362,0"
               Start="0,0"
-              End="224.242863650711,0">
+              End="222.100006471362,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="224.242863650711,0" />
+                    End="222.100006471362,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2755,168 +2468,12 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="214.4,41.6"
-          Id="Package\Extract Draft Data to Staging.EventHandlers[OnPreExecute]\Truncate Draft Staging Table"
-          TopLeft="412,130" />
+          Size="213.6,41.6"
+          Id="Package\Extract Draft Data to Staging.EventHandlers[OnPreExecute]\Trunczte Draft Staging Table"
+          TopLeft="513,87" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
-  <TaskHost
-    design-time-name="Package\Extract Player Data to Staging">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Extract Player Data to Staging\OLE DB Source"
-          TopLeft="112.857144779089,70.352942163144" />
-        <NodeLayout
-          Size="234.4,41.6"
-          Id="Package\Extract Player Data to Staging\Load data to Player Staging table"
-          TopLeft="490.7142940711,71.8823539492993" />
-        <EdgeLayout
-          Id="Package\Extract Player Data to Staging.Paths[OLE DB Source Output]"
-          TopLeft="262.457144779089,91.9176480562217">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="228.257149292012,0"
-              Start="0,0"
-              End="220.757149292012,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="220.757149292012,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <DtsEventHandler
-    design-time-name="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]\Truncate Player Staging Table"
-          TopLeft="445,98" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Player Data to Staging\Load data to Player Staging table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Player Data to Staging\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Extract Team Data to Staging">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Extract Team Data to Staging\OLE DB Source"
-          TopLeft="264,95" />
-        <NodeLayout
-          Size="233.6,41.6"
-          Id="Package\Extract Team Data to Staging\Load Data to Team Staging table"
-          TopLeft="710,92" />
-        <EdgeLayout
-          Id="Package\Extract Team Data to Staging.Paths[OLE DB Source Output]"
-          TopLeft="413.6,114.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="296.4,0"
-              Start="0,0"
-              End="288.9,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="288.9,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <DtsEventHandler
-    design-time-name="Package\Extract Team Data to Staging.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Extract Team Data to Staging.EventHandlers[OnPreExecute]\Trunctae Team Staging Table"
-          TopLeft="528,126" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Team Data to Staging\Load Data to Team Staging table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Team Data to Staging\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Extract Draft Data to Staging\OLE DB Destination">
     <Properties>
@@ -2930,5 +2487,81 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extract Player Data to Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Extract Player Data to Staging\OLE DB Source"
+          TopLeft="122.142859222938,69.5882362700664" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Extract Player Data to Staging\Load Player Data to Staging"
+          TopLeft="498.57143706205,68.8235303769887" />
+        <EdgeLayout
+          Id="Package\Extract Player Data to Staging.Paths[OLE DB Source Output]"
+          TopLeft="271.742859222938,90.0058833235275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226.828577839112,0"
+              Start="0,0"
+              End="219.328577839112,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="219.328577839112,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Player Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Player Data to Staging\Load Player Data to Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]\Truncate Player Staging Table"
+          TopLeft="443,141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

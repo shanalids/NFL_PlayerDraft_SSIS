@@ -1,0 +1,1162 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}" Name="LAPTOP-LLLRUKGJ.NFL_Staging">
+      <DtsConnectionManagerID>LAPTOP-LLLRUKGJ.NFL_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{66367BB0-4826-497D-B453-BFD2B95A5A08}" Name="NFL_College_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_College_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{0319BAD9-8646-4B1F-B623-85F9DD0AABE4}" Name="NFL_Draft_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Draft_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{623C907B-63B8-47AF-84A4-7FBE882FDC3F}" Name="NFL_Location_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Location_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{72B9D600-53B1-41A8-8B06-FE9CF6BE4566}" Name="NFL_Player_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Player_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{D9AA034B-FC5A-46D7-8CDF-4FA7F7B2B947}" Name="NFL_Team_DataProfiling_Result">
+      <DtsConnectionManagerID>NFL_Team_DataProfiling_Result</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgPlayer" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgPlayer" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgPlayer" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgPlayer" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table Schema="dbo" Table="StgPlayer" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerPosition" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="Age" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="ManagerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="Age" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>22</MinValue>
+        <MaxValue>25</MaxValue>
+        <Mean>23.504596462309</Mean>
+        <StdDev>1.11487287626907</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>7470</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>8303</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>27</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1223</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>814</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>3076</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>16</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>26</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>126</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1852</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>59</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>2672</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>5</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>653</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>303</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>2703</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>23</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>1975</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>237</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerPosition" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>1</MinLength>
+        <MaxLength>3</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>107</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>1</Length>
+            <Count>2734</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>12932</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>3</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>15773</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="ManagerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>20</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>357</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>1822</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>2866</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>13</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>186</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1090</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>61</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>3013</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>1054</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>529</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>1998</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>2685</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>84</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <KeyColumns>
+          <Column Name="PlayerID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>15773</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <KeyColumns>
+          <Column Name="PlayerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>false</IsExactKey>
+        <KeyStrength>0.9617067</KeyStrength>
+        <KeyViolations>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Williams</ColumnValue>
+            </ColumnValues>
+            <Count>12</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Williams</ColumnValue>
+            </ColumnValues>
+            <Count>6</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Jones</ColumnValue>
+            </ColumnValues>
+            <Count>6</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Greg Jones</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Kevin Williams</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Charles Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Dennis Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Jones</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Brian Williams</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Smith</ColumnValue>
+            </ColumnValues>
+            <Count>5</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Anthony Davis</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>David Jones</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Brandon Williams</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Steve Smith</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Steve Taylor</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Jim Smith</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Jeff Smith</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Reggie Brown</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Green</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Brian Allen</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Dave Smith</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Davis</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>David Williams</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Robert Woods</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Chris Jones</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Russell Davis</ColumnValue>
+            </ColumnValues>
+            <Count>4</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>J.T. Thomas</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Bob White</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Bruce Davis</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Eric Williams</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike White</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Sean Smith</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Jimmy Smith</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Davis</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Ray Brown</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Jeff Allen</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Charlie Williams</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Keith Williams</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Thomas</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Michael Jackson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Steve Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Joe Campbell</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Joe Adams</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Martin</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Gary Anderson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Montgomery</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Greg Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Calvin Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mark Nichols</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Steve Hamilton</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Ron Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Jimmy Williams</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>John Smith</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Randy Walker</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Kevin Smith</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Robert Hunt</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Terry Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Kevin Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Larry Brown</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Tim Foley</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike Miller</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Charles Davis</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Eric Stokes</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mike McCoy</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Don Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Tony Smith</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Greg Robinson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Charlie Hall</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Willie Jackson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Larry Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Chris Myers</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Joe Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Chris White</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Ron Brown</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Eric Smith</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Stewart</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>David King</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Willie Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Ken Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Charlie Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Matt Johnson</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Aaron Brown</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Rod Jones</ColumnValue>
+            </ColumnValues>
+            <Count>3</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Anthony Phillips</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Richards</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>James Folston</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Brian Johnston</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>John Robertson</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Dan Williams</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Mark Smith</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Steve Booras</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Courtney Brown</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Pat Kelly</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Reggie Williams</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>D.J. Williams</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>George Farmer</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Ron Lee</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Fred Coleman</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>Bobby Taylor</ColumnValue>
+            </ColumnValues>
+            <Count>2</Count>
+          </MultiColumnValueDistributionItem>
+        </KeyViolations>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>15169</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="PlayerPosition" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>25</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>K</Value>
+            <Count>163</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>DE</Value>
+            <Count>1148</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>T</Value>
+            <Count>1019</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>NT</Value>
+            <Count>137</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ILB</Value>
+            <Count>34</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>QB</Value>
+            <Count>2235</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>FB</Value>
+            <Count>88</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>S</Value>
+            <Count>128</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>TE</Value>
+            <Count>808</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>DB</Value>
+            <Count>2221</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>P</Value>
+            <Count>149</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>RB</Value>
+            <Count>1549</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>LB</Value>
+            <Count>1804</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>G</Value>
+            <Count>882</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OLB</Value>
+            <Count>73</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>DL</Value>
+            <Count>31</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>OL</Value>
+            <Count>74</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CB</Value>
+            <Count>189</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C</Value>
+            <Count>393</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>DT</Value>
+            <Count>898</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>WR</Value>
+            <Count>1731</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="Age" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>4</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>23</Value>
+            <Count>3996</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>24</Value>
+            <Count>3946</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>25</Value>
+            <Count>3948</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>22</Value>
+            <Count>3883</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="LocationID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>17</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>L12</Value>
+            <Count>914</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L15</Value>
+            <Count>913</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L13</Value>
+            <Count>914</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L18</Value>
+            <Count>943</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L01</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L06</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L11</Value>
+            <Count>914</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L16</Value>
+            <Count>913</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L04</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L09</Value>
+            <Count>914</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L07</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L14</Value>
+            <Count>913</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L17</Value>
+            <Count>913</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L03</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L08</Value>
+            <Count>914</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L02</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>L05</Value>
+            <Count>944</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{DF79DD45-EDB6-4D50-A006-36ECDB63C4D9}</DataSourceID>
+        <Table DataSource="LAPTOP-LLLRUKGJ" Database="NFL_Staging" Schema="dbo" Table="StgPlayer" RowCount="15773" />
+        <Column Name="ManagerName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>6987</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

@@ -1,0 +1,1616 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2022 11:02:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-LLLRUKGJ"
+  DTS:CreatorName="LAPTOP-LLLRUKGJ\shanali de silva"
+  DTS:DTSID="{7FE306CA-CFE2-4F08-9264-6097BD859E63}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="NFL_DW"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{0CD667D0-4097-4E99-953A-C974442A11F4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{970BA0BC-190A-405F-96E7-5EA1AF2C3628}"
+      DTS:ObjectName="LAPTOP-LLLRUKGJ.NFL_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-LLLRUKGJ;Initial Catalog=NFL_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2618FED2-CDE2-41EC-81AB-0D44A80FFCDE}"
+      DTS:ObjectName="LAPTOP-LLLRUKGJ.NFL_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-LLLRUKGJ;Initial Catalog=NFL_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Transform and Load College Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2027C9AC-C5EF-4F2C-91BD-8800A7B4B423}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transform and Load College Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transform and Load College Data\College Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="College Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load College Data\College Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Inputs[Sort Input].Columns[CollegeID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CollegeID"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Inputs[Sort Input].Columns[CollegeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CollegeName"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Inputs[Sort Input].Columns[Capacity]"
+                      cachedDataType="numeric"
+                      cachedName="Capacity"
+                      cachedPrecision="18"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[Capacity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Inputs[Sort Input].Columns[LocationID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LocationID"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[LocationID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[CollegeID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[CollegeID]"
+                      name="CollegeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[CollegeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[CollegeName]"
+                      name="CollegeName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[Capacity]"
+                      dataType="numeric"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[Capacity]"
+                      name="Capacity"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[Capacity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[LocationID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[LocationID]"
+                      name="LocationID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[LocationID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load College Data\Extract From College Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract From College Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgCollege]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load College Data\Extract From College Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[CollegeID]"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeID]"
+                      name="CollegeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[CollegeName]"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[CollegeName]"
+                      name="CollegeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[Capacity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[Capacity]"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[Capacity]"
+                      name="Capacity"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[LocationID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].Columns[LocationID]"
+                      name="LocationID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[CollegeID]"
+                      dataType="wstr"
+                      length="50"
+                      name="CollegeID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[CollegeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="CollegeName" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[Capacity]"
+                      dataType="numeric"
+                      name="Capacity"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                      dataType="wstr"
+                      length="50"
+                      name="LocationID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[CollegeID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[CollegeID]"
+                      name="CollegeID" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[CollegeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[CollegeName]"
+                      name="CollegeName" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[Capacity]"
+                      dataType="numeric"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[Capacity]"
+                      name="Capacity"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                      name="LocationID" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load College Data\Extract From Location Dimension"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract From Location Dimension"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load College Data\Extract From Location Dimension.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[LocationSK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[LocationSK]"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[LocationSK]"
+                      name="LocationSK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[AlternateLocationID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[AlternateLocationID]"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[AlternateLocationID]"
+                      name="AlternateLocationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      name="InsertDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[LocationSK]"
+                      dataType="i4"
+                      name="LocationSK" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[AlternateLocationID]"
+                      dataType="wstr"
+                      length="50"
+                      name="AlternateLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      name="InsertDate" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[LocationSK]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[LocationSK]"
+                      name="LocationSK" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[AlternateLocationID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[AlternateLocationID]"
+                      name="AlternateLocationID" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      name="InsertDate" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load College Data\Load DimCollege"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load DimCollege"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec dbo.UpdateDimCollege ?,?,?,?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load College Data\Load DimCollege.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].Columns[CollegeID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CollegeID"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@CollegeID]"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[CollegeID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].Columns[CollegeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CollegeName"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@CollegeName]"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[CollegeName]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].Columns[Capacity]"
+                      cachedDataType="numeric"
+                      cachedName="Capacity"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@Capacity]"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[Capacity]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].Columns[LocationSK]"
+                      cachedDataType="i4"
+                      cachedName="LocationSK"
+                      externalMetadataColumnId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@LocationKey]"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[LocationSK]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@CollegeID]"
+                      dataType="wstr"
+                      length="50"
+                      name="@CollegeID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@CollegeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="@CollegeName">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@Capacity]"
+                      dataType="i4"
+                      name="@Capacity">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input].ExternalColumns[@LocationKey]"
+                      dataType="i4"
+                      name="@LocationKey">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load College Data\Load DimCollege.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transform and Load College Data\Load DimCollege.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Load DimCollege.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Load DimCollege.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Load DimCollege.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load College Data\Location Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Location Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load College Data\Location Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Location Sort.Inputs[Sort Input].Columns[LocationSK]"
+                      cachedDataType="i4"
+                      cachedName="LocationSK"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[LocationSK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Location Sort.Inputs[Sort Input].Columns[AlternateLocationID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AlternateLocationID"
+                      lineageId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[AlternateLocationID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output].Columns[LocationSK]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output].Columns[LocationSK]"
+                      name="LocationSK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[LocationSK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output].Columns[AlternateLocationID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output].Columns[AlternateLocationID]"
+                      name="AlternateLocationID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output].Columns[AlternateLocationID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load College Data\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[LocationID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LocationID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[LocationID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[CollegeID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CollegeID"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[CollegeID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[CollegeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CollegeName"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[CollegeName]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[Capacity]"
+                      cachedDataType="numeric"
+                      cachedName="Capacity"
+                      cachedPrecision="18"
+                      lineageId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output].Columns[Capacity]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Right Input].Columns[AlternateLocationID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AlternateLocationID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output].Columns[AlternateLocationID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Right Input].Columns[LocationSK]"
+                      cachedDataType="i4"
+                      cachedName="LocationSK"
+                      lineageId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output].Columns[LocationSK]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[CollegeID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[CollegeID]"
+                      name="CollegeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[CollegeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[CollegeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[CollegeName]"
+                      name="CollegeName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[CollegeName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[Capacity]"
+                      dataType="numeric"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[Capacity]"
+                      name="Capacity"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input].Columns[Capacity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[LocationSK]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output].Columns[LocationSK]"
+                      name="LocationSK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Right Input].Columns[LocationSK]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transform and Load College Data.Paths[Merge Join Output]"
+              endId="Package\Transform and Load College Data\Load DimCollege.Inputs[OLE DB Command Input]"
+              name="Merge Join Output"
+              startId="Package\Transform and Load College Data\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Transform and Load College Data.Paths[OLE DB Source Output]"
+              endId="Package\Transform and Load College Data\College Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transform and Load College Data\Extract From College Staging.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Transform and Load College Data.Paths[OLE DB Source Output1]"
+              endId="Package\Transform and Load College Data\Location Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transform and Load College Data\Extract From Location Dimension.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Transform and Load College Data.Paths[Sort Output]"
+              endId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Transform and Load College Data\College Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Transform and Load College Data.Paths[Sort Output1]"
+              endId="Package\Transform and Load College Data\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Transform and Load College Data\Location Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transform and Load Location Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{216CBBAE-0E2D-4529-9CD9-32E253326E5C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transform and Load Location Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transform and Load Location Data\Extract from Location Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract from Location Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load Location Data\Extract from Location Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[LocationID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                      length="50"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[LocationID]"
+                      name="LocationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="50"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="50"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].ExternalColumns[LocationID]"
+                      dataType="wstr"
+                      length="50"
+                      name="LocationID" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[LocationID]"
+                      name="LocationID" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transform and Load Location Data\Load DimLocation"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load DimLocation"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec dbo.UpdateDimLocation ?,?,?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transform and Load Location Data\Load DimLocation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-LLLRUKGJ.NFL_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].Columns[LocationID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LocationID"
+                      externalMetadataColumnId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].ExternalColumns[@LocationID]"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[LocationID]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].ExternalColumns[@Country]"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].ExternalColumns[@State]"
+                      lineageId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output].Columns[State]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].ExternalColumns[@LocationID]"
+                      dataType="wstr"
+                      length="50"
+                      name="@LocationID">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].ExternalColumns[@Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="@Country">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input].ExternalColumns[@State]"
+                      dataType="wstr"
+                      length="50"
+                      name="@State">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transform and Load Location Data\Load DimLocation.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Transform and Load Location Data\Load DimLocation.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Location Data\Load DimLocation.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transform and Load Location Data\Load DimLocation.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transform and Load Location Data\Load DimLocation.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transform and Load Location Data.Paths[OLE DB Source Output]"
+              endId="Package\Transform and Load Location Data\Load DimLocation.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transform and Load Location Data\Extract from Location Staging.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Transform and Load College Data"
+          TopLeft="250.000004257475,127.705884143968" />
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\Transform and Load Location Data"
+          TopLeft="52.8571437572947,37.470588760805" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transform and Load College Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Transform and Load College Data\Extract From College Staging"
+          TopLeft="93,52" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Transform and Load College Data\Location Sort"
+          TopLeft="658,138" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Transform and Load College Data\Load DimCollege"
+          TopLeft="432,317" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Transform and Load College Data\Merge Join"
+          TopLeft="442,224" />
+        <NodeLayout
+          Size="233.6,41.6"
+          Id="Package\Transform and Load College Data\Extract From Location Dimension"
+          TopLeft="604,52" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Transform and Load College Data\College Sort"
+          TopLeft="126,130" />
+        <EdgeLayout
+          Id="Package\Transform and Load College Data.Paths[Sort Output1]"
+          TopLeft="728,179.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.933333333333,44.4000000000001"
+              Start="0,0"
+              End="-200.933333333333,36.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3151219512196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.3151219512196"
+                    Point2="0,26.3151219512196"
+                    Point3="-4,26.3151219512196" />
+                  <mssgle:LineSegment
+                    End="-196.933333333333,26.3151219512196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-196.933333333333,26.3151219512196"
+                    Point2="-200.933333333333,26.3151219512196"
+                    Point3="-200.933333333333,30.3151219512196" />
+                  <mssgle:LineSegment
+                    End="-200.933333333333,36.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load College Data.Paths[Sort Output]"
+          TopLeft="193.6,171.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="313.2,52.4000000000001"
+              Start="0,0"
+              End="313.2,44.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2"
+                    Point2="0,26.2"
+                    Point3="4,26.2" />
+                  <mssgle:LineSegment
+                    End="309.2,26.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="309.2,26.2"
+                    Point2="313.2,26.2"
+                    Point3="313.2,30.2" />
+                  <mssgle:LineSegment
+                    End="313.2,44.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load College Data.Paths[OLE DB Source Output1]"
+          TopLeft="724.4,93.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.4"
+              Start="0,0"
+              End="0,36.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load College Data.Paths[OLE DB Source Output]"
+          TopLeft="197.1,93.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.3999999999999"
+              Start="0,0"
+              End="0,28.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load College Data.Paths[Merge Join Output]"
+          TopLeft="508.6,265.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.4"
+              Start="0,0"
+              End="0,43.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform and Load College Data\Extract From College Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform and Load College Data\Extract From Location Dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Transform and Load Location Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Transform and Load Location Data\Load DimLocation"
+          TopLeft="477.857150995002,59.6470596600569" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Transform and Load Location Data\Extract from Location Staging"
+          TopLeft="102.14285888234,54.2941184085133" />
+        <EdgeLayout
+          Id="Package\Transform and Load Location Data.Paths[OLE DB Source Output]"
+          TopLeft="319.74285888234,77.7705890342851">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.114292112662,0"
+              Start="0,0"
+              End="150.614292112662,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="150.614292112662,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform and Load Location Data\Extract from Location Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
