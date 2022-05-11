@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NFL_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{17772E5C-CB8D-4085-B1C0-2167AC878B19}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{9C8CCF7F-4C1D-4383-89D9-5009AF21B11B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2525,19 +2525,18 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Extract Player Data to Staging\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]\Truncate Player Staging Table"
+          TopLeft="443,141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <PipelineComponentMetadata
     design-time-name="Package\Extract Player Data to Staging\Load Player Data to Staging">
     <Properties>
@@ -2551,17 +2550,18 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\Extract Player Data to Staging.EventHandlers[OnPreExecute]\Truncate Player Staging Table"
-          TopLeft="443,141" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Player Data to Staging\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
